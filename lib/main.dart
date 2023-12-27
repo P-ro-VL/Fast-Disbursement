@@ -59,8 +59,9 @@ class MyHomePageState extends State<MyHomePage> {
             if (transactions.isEmpty) ...[
               ClickableWidget(
                   onTap: () {
-                    launchUrlString(
-                        "https://github.com/P-ro-VL/Fast-Disbursement/raw/main/FILE%20D%E1%BB%AE%20LI%E1%BB%86U%20M%E1%BA%AAU%20FADIS.xlsx",
+                    launchUrl(
+                        Uri.parse(
+                            "https://github.com/P-ro-VL/Fast-Disbursement/raw/main/FILE%20D%E1%BB%AE%20LI%E1%BB%86U%20M%E1%BA%AAU%20FADIS.xlsx"),
                         mode: LaunchMode.platformDefault);
                   },
                   child: Text(
