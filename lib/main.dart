@@ -1,7 +1,5 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, use_build_context_synchronously
 
-import 'dart:io';
-
 import 'package:excel/excel.dart' as excelIns;
 import 'package:fast_disbursement/components/clickable_widget.dart';
 import 'package:fast_disbursement/qr_scan.dart';
@@ -9,6 +7,8 @@ import 'package:fast_disbursement/utils/snackbar_utils.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Hệ thống hỗ trợ giải ngân nhanh',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
         useMaterial3: true,
@@ -57,7 +58,11 @@ class MyHomePageState extends State<MyHomePage> {
             ),
             if (transactions.isEmpty) ...[
               ClickableWidget(
-                  onTap: () {},
+                  onTap: () {
+                    launchUrlString(
+                        "https://github.com/P-ro-VL/Fast-Disbursement/raw/main/FILE%20D%E1%BB%AE%20LI%E1%BB%86U%20M%E1%BA%AAU%20FADIS.xlsx",
+                        mode: LaunchMode.platformDefault);
+                  },
                   child: Text(
                     "Tải file dữ liệu mẫu",
                     style: TextStyle(
