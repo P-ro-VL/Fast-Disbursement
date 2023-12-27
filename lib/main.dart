@@ -7,7 +7,7 @@ import 'package:fast_disbursement/utils/snackbar_utils.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_datagrid/datagrid.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'dart:html' as html;
 
 void main() {
   runApp(const MyApp());
@@ -58,10 +58,9 @@ class MyHomePageState extends State<MyHomePage> {
             if (transactions.isEmpty) ...[
               ClickableWidget(
                   onTap: () {
-                    launchUrl(
-                        Uri.parse(
-                            "https://github.com/P-ro-VL/Fast-Disbursement/raw/main/FILE%20D%E1%BB%AE%20LI%E1%BB%86U%20M%E1%BA%AAU%20FADIS.xlsx"),
-                        mode: LaunchMode.platformDefault);
+                    html.window.open(
+                        "https://github.com/P-ro-VL/Fast-Disbursement/raw/main/FILE%20D%E1%BB%AE%20LI%E1%BB%86U%20M%E1%BA%AAU%20FADIS.xlsx",
+                        "_blank");
                   },
                   child: Text(
                     "Tải file dữ liệu mẫu",
